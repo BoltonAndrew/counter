@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Counter from "./components/Counter.js";
+import SteveOrGary from "./components/SteveOrGary.js";
+import styles from "./App.module.css";
 
 function App() {
+  const [name, setName] = useState("Andy");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className={styles.App}>
+      <header className={styles["App-header"]}>
+        <h1>React Hooks - useState</h1>
+        <h2>Let's talk about state</h2>
       </header>
+      <main className={styles["App-main"]}>
+        <h2>{name}</h2>
+        <SteveOrGary myName={name} funcToChangeName={setName} />
+        <Counter />
+      </main>
+      <footer className={styles["App-footer"]}>
+        <h3>Created By Andy Bolton</h3>
+      </footer>
     </div>
   );
 }
